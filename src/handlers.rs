@@ -54,7 +54,7 @@ struct FacultyFilter
 struct Rid
 {
     name: String,
-    describtion: String,
+    description: String,
     number: i32,
     faculty: String,
     rid_type: String,
@@ -319,7 +319,7 @@ pub async fn find(search_request: web::Json<HashMap<String, serde_json::Value>>,
     let mut basepart: String = String::from(r#"
         select
             rid.name as name,
-            rid.description as describtion,
+            rid.description as description,
             rid.numPotent as number,
             Faculty.name as faculty,
             Type.name as rid_type,
@@ -398,7 +398,7 @@ pub async fn find(search_request: web::Json<HashMap<String, serde_json::Value>>,
                 }
             },
 
-            _ => continue
+            _ => continue;
         }
     }
 
@@ -493,7 +493,7 @@ pub async fn find(search_request: web::Json<HashMap<String, serde_json::Value>>,
                     "#,
                     i,
                     row.name, // 1
-                    row.describtion, // 2
+                    row.description, // 2
                     row.number, // 3
                     row.faculty, // 4
                     row.rid_type, // 5
