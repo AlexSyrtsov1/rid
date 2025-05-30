@@ -1,1 +1,825 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>РИД-портфель</title>
+    </head>
+    <link rel="stylesheet" href="portfolio/assets/content.css">
 
+    <script>
+        
+        const secondaryContentContainer = document.getElementById("secondary-content-container");
+        
+        function scrollFunction()
+        {
+            const mybutton = document.getElementById("back-to-top");
+            if (document.getElementById("secondary-content-container").scrollTop > 20 || document.documentElement.scrollTop > 20)
+            {
+                mybutton.style.display = "block";
+            }
+            else
+            {
+                mybutton.style.display = "none";
+            }
+        }
+        
+        function topFunction()
+        {
+          document.body.scrollTop = 0;
+          document.getElementById("secondary-content-container").scrollTop = 0;
+          document.documentElement.scrollTop = 0;
+        }
+    </script>
+
+    <body onscroll="scrollFunction()">
+        <header id="navbar">
+            <div id="title">
+                <a id="logo" href="/" aria-label="Результаты интеллектуальной деятельности">
+                    <img id="logo-rudn" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/header-logo.png">
+                </a>
+                <a id="title-name-header1" href="/">
+                    Результаты интеллектуальной деятельности РУДН
+                </a>
+            </div>
+            <div id="right-header-side">
+                <a class="button-for-special-people" href="/registration" target="_top"><span style="padding: 14px;">Регистрация РИД</span></a>
+                <a class="button-for-special-people" href="https://lib.rudn.ru/" target="_top"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/non-stereotipical-library-symbol.svg"></a>
+                <a class="button-for-special-people" onclick="overlay00.style.display = 'flex'" target="_top"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/retro-mail.svg"></a>
+            </div>
+        </header>
+
+        <script>
+            const CATEGORY_ID_END = 9;
+
+            function hideCategoryList(id)
+            {
+                const list = document.getElementById("category-list-"+id[CATEGORY_ID_END]);
+                
+                if(list.style.display === "none")
+                {
+                    document.getElementById(id).style.transform = 'rotate(0)';
+                    list.style.display = "block";
+                }
+                else
+                {
+                    document.getElementById(id).style.transform = 'rotate(180deg)';
+                    list.style.display = "none";
+                }
+            }
+        </script>
+
+        <section id="primary-content-container">
+            <sidebar id="side-panel">
+
+                <script>
+                    function hideFilters()
+                    {
+                        document.getElementById('side-panel').style.display = 'none';
+                        document.getElementById('secondary-content-container').style.display = 'block';
+                        
+                    }
+                </script>
+                <div style="display: flex; flex-direction: row; justify-content: right; margin: 2rem 0;">
+                    <button id="hide-panel" onclick="hideFilters()">
+                        <img style="block-size: 2.3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/close-cross.svg">
+                    </button>
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <div id="filter-header">
+                        <h1>Фильтры</h1>
+                        <button id="clear-all-filters-button" type="button" onclick="clearFilters()">Очистить все</button>
+                    </div>
+                    <div id="applyed-filters"></div>
+                </div>
+                
+
+                <div id="categories-upload">
+                    <div class="category-type">
+                            <button type="button" class="category-header" onclick="hideCategoryList('category-1')">
+                                Предметная область<img style="block-size: 1rem; transform: rotate(0);" id="category-1" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/expand.svg">
+                            </button>
+
+                            <div id="category-list-1" class="category-list">
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="hum" name="check" onclick="addQuery('s','Гуманитарные науки')"/>
+                                    <label for="hum">Гуманитарные науки</label>
+                                </div>
+                                <div class="category-count" id="cc-hum">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="eng" name="check" onclick="addQuery('s','Инженерные науки')"/>
+                                    <label for="eng">Инженерные науки</label>
+                                </div>
+                                <div class="category-count" id="cc-eng">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="sci" name="check" onclick="addQuery('s','Математические и естественные науки')"/>
+                                    <label for="sci">Математические и естественные науки</label>
+                                </div>
+                                <div class="category-count" id="cc-sci">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="med" name="check" onclick="addQuery('s','Медицинские науки')"/>
+                                    <label for="med">Медицинские науки</label>
+                                </div>
+                                <div class="category-count" id="cc-med">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="soc" name="check" onclick="addQuery('s','Науки об обществе')"/>
+                                    <label for="soc">Науки об обществе</label>
+                                </div>
+                                <div class="category-count" id="cc-soc">0</div>
+                            </div>
+
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="agr" name="check" onclick="addQuery('s','Сельское хозяйство')"/>
+                                    <label for="agr">Сельское хозяйство</label>
+                                </div>
+                                <div class="category-count" id="cc-agr">0</div>
+                            </div>
+
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="eco" name="check" onclick="addQuery('s','Экология')"/>
+                                    <label for="eco">Экология</label>
+                                </div>
+                                <div class="category-count" id="cc-eco">0</div>
+                            </div>
+
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="oth" name="check" onclick="addQuery('s','Другое')"/>
+                                    <label for="oth">Другое</label>
+                                </div>
+                                <div class="category-count" id="cc-oth">0</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+
+                
+
+
+                    <div class="category-type">
+                        <button type="button" class="category-header" onclick="hideCategoryList('category-2')">
+                            Год<img style="block-size: 1rem; transform: rotate(180deg);" id="category-2" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/expand.svg">
+                        </button>
+
+                        <div id="category-list-2" class="category-list" style="display:none;">
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="2024" name="check" onclick="addQuery('y','2024')"/>
+                                    <label for="2024">2024</label>
+                                </div>
+                                <div class="category-count" id="cc-2024">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="2023" name="check" onclick="addQuery('y','2023')"/>
+                                    <label for="2023">2023</label>
+                                </div>
+                                <div class="category-count" id="cc-2023">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="2022" name="check" onclick="addQuery('y','2022')"/>
+                                    <label for="2022">2022</label>
+                                </div>
+                                <div class="category-count" id="cc-2022">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="2021" name="check" onclick="addQuery('y','2021')"/>
+                                    <label for="2021">2021</label>
+                                </div>
+                                <div class="category-count" id="cc-2021">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="2020" name="check" onclick="addQuery('y','2020')"/>
+                                    <label for="2020">2020</label>
+                                </div>
+                                <div class="category-count" id="cc-2020">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="2019" name="check" onclick="addQuery('y','2019')"/>
+                                    <label for="2019">2019</label>
+                                </div>
+                                <div class="category-count" id="cc-2019">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="2018" name="check" onclick="addQuery('y','2018')"/>
+                                    <label for="2018">2018</label>
+                                </div>
+                                <div class="category-count" id="cc-2018">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="2017" name="check" onclick="addQuery('y','2017')"/>
+                                    <label for="2017">2017</label>
+                                </div>
+                                <div class="category-count" id="cc-2017">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="2016" name="check" onclick="addQuery('y','2016')"/>
+                                    <label for="2016">2016</label>
+                                </div>
+                                <div class="category-count" id="cc-2016">0</div>
+                            </div>
+                            
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="2015" name="check" onclick="addQuery('y','2015')"/>
+                                    <label for="2015">2015</label>
+                                </div>
+                                <div class="category-count" id="cc-2015">0</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="category-type" style="margin-bottom: 10rem;">
+                        <button type="button" class="category-header" aria-expanded="true" onclick="hideCategoryList('category-3')">
+                            Факультеты<img style="block-size: 1rem; transform: rotate(180deg);" id="category-3" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/expand.svg">
+                        </button>
+
+                        <div id="category-list-3" class="category-list" style="display: none;">
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="ati" name="check" onclick="addQuery('d','Аграрно-технологический институт')"/>
+                                    <label for="ati">Аграрно-технологический институт</label>
+                                </div>
+                                <div class="category-count" id="cc-ati">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="vhu" name="check" onclick="addQuery('d','Высшая школа управления')"/>
+                                    <label for="vhu">Высшая школа управления</label>
+                                </div>
+                                <div class="category-count" id="cc-vhu">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="ena" name="check" onclick="addQuery('d','Инженерная академия')"/>
+                                    <label for="ena">Инженерная академия</label>
+                                </div>
+                                <div class="category-count" id="cc-ena">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="ibt" name="check" onclick="addQuery('d','Институт биохимической технологии и нанотехнологии')"/>
+                                    <label for="ibt">Институт биохимической технологии и нанотехнологии</label>
+                                </div>
+                                <div class="category-count" id="cc-ibt">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="ivb" name="check" onclick="addQuery('d','Институт внешнеэкономической безопасности и таможенного дела')"/>
+                                    <label for="ivb">Институт внешнеэкономической безопасности и таможенного дела</label>
+                                </div>
+                                <div class="category-count" id="cc-ivb">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="iiy" name="check" onclick="addQuery('d','Институт иностранных языков')"/>
+                                    <label for="iiy">Институт иностранных языков</label>
+                                </div>
+                                <div class="category-count" id="cc-iiy">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="ime" name="check" onclick="addQuery('d','Институт мировой экономики и бизнеса')"/>
+                                    <label for="ime">Институт мировой экономики и бизнеса</label>
+                                </div>
+                                <div class="category-count" id="cc-ime">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="iry" name="check" onclick="addQuery('d','Институт русского языка')"/>
+                                    <label for="iry">Институт русского языка</label>
+                                </div>
+                                <div class="category-count" id="cc-iry">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="iec" name="check" onclick="addQuery('d','Институт экологии')"/>
+                                    <label for="iec">Институт экологии</label>
+                                </div>
+                                <div class="category-count" id="cc-iec">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="mei" name="check" onclick="addQuery('d','Медицинский институт')"/>
+                                    <label for="mei">Медицинский институт</label>
+                                </div>
+                                <div class="category-count" id="cc-mei">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="fgs" name="check" onclick="addQuery('d','Факультет гуманитарных и социальных наук')"/>
+                                    <label for="fgs">Факультет гуманитарных и социальных наук</label>
+                                </div>
+                                <div class="category-count" id="cc-fgs">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="fee" name="check" onclick="addQuery('d','Факультет искусственного интеллекта')"/>
+                                    <label for="fee">Факультет искусственного интеллекта</label>
+                                </div>
+                                <div class="category-count" id="cc-fee">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="ffm" name="check" onclick="addQuery('d','Факультет физико-математических и естественных наук')"/>
+                                    <label for="ffm">Факультет физико-математических и естественных наук</label>
+                                </div>
+                                <div class="category-count" id="cc-ffm">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="fif" name="check" onclick="addQuery('d','Филологический факультет')"/>
+                                    <label for="fif">Филологический факультет</label>
+                                </div>
+                                <div class="category-count" id="cc-fif">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="ecf" name="check" onclick="addQuery('d','Экономический факультет')"/>
+                                    <label for="ecf">Экономический факультет</label>
+                                </div>
+                                <div class="category-count" id="cc-ecf">0</div>
+                            </div>
+                            <div class="category">
+                                <div>
+                                    <input type="checkbox" id="yui" name="check" onclick="addQuery('d','Юридический институт')"/>
+                                    <label for="yui">Юридический институт</label>
+                                </div>
+                                <div class="category-count" id="cc-yui">0</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </sidebar>
+
+            
+
+            <section id="secondary-content-container" onscroll="scrollFunction()">
+                <div id="search-title">
+                    Поиск Результатов Интеллектуальной Деятельности
+                </div>
+
+                <script>
+                    var q = {};
+                    const allCategories = document.getElementsByName("check");
+
+                    function clearFilters()
+                    {
+                        allCategories.forEach((node) => node.checked = false);
+                        delete q['y'];
+                        delete q['s'];
+                        delete q['d'];
+                    }
+
+                    function showFilters()
+                    {
+                        document.getElementById('side-panel').style.display = 'block';
+                        document.getElementById('secondary-content-container').style.display = 'none';
+                    }
+
+                    function showDescribtion(id)
+                    {
+                        const list = document.getElementById(id+"-desc");
+                
+                        if(list.style.display === "none")
+                        {
+                            document.getElementById(id).style.transform = 'rotate(0)';
+                            list.style.display = "block";
+                        }
+                        else
+                        {
+                            document.getElementById(id).style.transform = 'rotate(180deg)';
+                            list.style.display = "none";
+                        }
+                    }
+                </script>
+
+                
+
+                <div id="mobile-adapter-search-wrapper">
+                    <button id="filter-mobile-menu" onclick="showFilters()">
+                        <img style="block-size: 2rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/filters.svg">
+                    </button>
+                    <div id="search">
+                        <input id="search-input" autocomplete="off" placeholder="запрос" value="" name="for" type="text" aria-haspopup="false" aria-autocomplete="both" dir="ltr" spellcheck="false">
+                        <button class="search-button" onclick="search()">
+                            <img style="block-size: 2rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/also-a-search-but-now-it-is-black.svg">
+                        </button>
+                        <button class="search-button">
+                        </button>
+                    </div>
+                </div>
+
+                
+
+                <button id="back-to-top" style="display: none;
+                position: fixed;
+                bottom: 20px;
+                right: 30px;
+                z-index: 99;
+                font-size: 18px;
+                border: none;
+                outline: none;
+                background-color: #146cdf85;
+                color: white;
+                cursor: pointer;
+                padding: 15px;
+                border-radius: 4px;" type="button" aria-live="polite" onclick="topFunction()">Наверх</button>
+
+                <div id="results">
+                    <div class="card-container">
+                        <div class="card-content">
+                            <h1 style="font-size: 1.1rem; margin: 0 0 .5rem 0;">
+                                {index}
+                            </h1>
+                            <h2 id="tech-name" style="font-size: 1.3rem; margin: 0 0 1rem 0;">
+                                <a class="tech-name-title" href="">
+                                    {название представленного результата интеллектуальной деятельности со ссылкой на страницу описания}
+                                </a>
+                            </h2>
+                            <p style="font-size: 1.1rem; margin: 0 0 .3rem 0;">
+                                {автор 1}/{автор 2}/.../{автор 3}
+                            </p>
+                            <p style="font-size: .9rem; margin: 0 0 1rem 0; color: #5f5f5f;">
+                                2024
+                            </p>
+                            
+                            <div class="category-tags">
+                                <a href="" class="category-tag">Аграрно-технологический институт</a>
+                                <a href="" class="category-tag">Агрокомплекс</a>
+                            </div>
+                            <button type="button" class="description-toggle" aria-expanded="true" onclick="showDescribtion('patent-1')" style="margin-top: 1rem;">
+                                Факультеты<img style="block-size: 1rem; transform: rotate(180deg);" id="patent-1" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/expand.svg">
+                            </button>
+
+                            <p id="patent-1-desc" class="category-list" style="display: none;">
+                                rtioytr[\ppiouilyukyts]
+                                dfghjlkjhg
+                                gyfkjhhfglf ggggggggggggggg ggggggggggggggggggggggg ggggggggggggggggggg ggggggggggggggggggg gggggggggggggggggggggg ggggggggggggggggggggggg
+                            </p>
+                        </div>
+                    </div>
+    
+                    <div class="card-container">
+                        <div class="card-content">
+                            <h1 style="font-size: 1.1rem; margin: 0 0 .5rem 0;">
+                                {index}
+                            </h1>
+                            <h2 id="tech-name" style="font-size: 1.3rem; margin: 0 0 1rem 0;">
+                                <a class="tech-name-title" href="">
+                                    {название представленного результата интеллектуальной деятельности со ссылкой на страницу описания}
+                                </a>
+                            </h2>
+                            <p style="font-size: 1.1rem; margin: 0 0 .3rem 0;">
+                                {автор 1}/{автор 2}/.../{автор 3}
+                            </p>
+                            <p style="font-size: .9rem; margin: 0 0 1rem 0; color: #5f5f5f;">
+                                2024
+                            </p>
+                            <div class="category-tags">
+                                <a href="" class="category-tag">Аграрно-технологический институт</a>
+                                <a href="" class="category-tag">Агрокомплекс</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="card-container">
+                        <div class="card-content">
+                            <h1 style="font-size: 1.1rem; margin: 0 0 .5rem 0;">
+                                {index}
+                            </h1>
+                            <h2 id="tech-name" style="font-size: 1.3rem; margin: 0 0 1rem 0;">
+                                <a class="tech-name-title" href="">
+                                    {название представленного результата интеллектуальной деятельности со ссылкой на страницу описания}
+                                </a>
+                            </h2>
+                            <p style="font-size: 1.1rem; margin: 0 0 .3rem 0;">
+                                {автор 1}/{автор 2}/.../{автор 3}
+                            </p>
+                            <p style="font-size: .9rem; margin: 0 0 1rem 0; color: #5f5f5f;">
+                                2024
+                            </p>
+                            <div class="category-tags">
+                                <a href="" class="category-tag">Аграрно-технологический институт</a>
+                                <a href="" class="category-tag">Агрокомплекс</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="card-container">
+                        <div class="card-content">
+                            <h1 style="font-size: 1.1rem; margin: 0 0 .5rem 0;">
+                                {index}
+                            </h1>
+                            <h2 id="tech-name" style="font-size: 1.3rem; margin: 0 0 1rem 0;">
+                                <a class="tech-name-title" href="">
+                                    {название представленного результата интеллектуальной деятельности со ссылкой на страницу описания}
+                                </a>
+                            </h2>
+                            <p style="font-size: 1.1rem; margin: 0 0 .3rem 0;">
+                                {автор 1}/{автор 2}/.../{автор 3}
+                            </p>
+                            <p style="font-size: .9rem; margin: 0 0 1rem 0; color: #5f5f5f;">
+                                2024
+                            </p>
+                            <div class="category-tags">
+                                <a href="" class="category-tag">Аграрно-технологический институт</a>
+                                <a href="" class="category-tag">Агрокомплекс</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="card-container">
+                        <div class="card-content">
+                            <h1 style="font-size: 1.1rem; margin: 0 0 .5rem 0;">
+                                {index}
+                            </h1>
+                            <h2 id="tech-name" style="font-size: 1.3rem; margin: 0 0 1rem 0;">
+                                <a class="tech-name-title" href="">
+                                    {название представленного результата интеллектуальной деятельности со ссылкой на страницу описания}
+                                </a>
+                            </h2>
+                            <p style="font-size: 1.1rem; margin: 0 0 .3rem 0;">
+                                {автор 1}/{автор 2}/.../{автор 3}
+                            </p>
+                            <p style="font-size: .9rem; margin: 0 0 1rem 0; color: #5f5f5f;">
+                                2024
+                            </p>
+                            <div class="category-tags">
+                                <a href="" class="category-tag">Аграрно-технологический институт</a>
+                                <a href="" class="category-tag">Агрокомплекс</a>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <div class="card-container">
+                        <div class="card-content">
+                            <h1 style="font-size: 1.1rem; margin: 0 0 .5rem 0;">
+                                {index}
+                            </h1>
+                            <h2 id="tech-name" style="font-size: 1.3rem; margin: 0 0 1rem 0;">
+                                <a class="tech-name-title" href="">
+                                    {название представленного результата интеллектуальной деятельности со ссылкой на страницу описания}
+                                </a>
+                            </h2>
+                            <p style="font-size: 1.1rem; margin: 0 0 .3rem 0;">
+                                {автор 1}/{автор 2}/.../{автор 3}
+                            </p>
+                            <p style="font-size: .9rem; margin: 0 0 1rem 0; color: #5f5f5f;">
+                                2024
+                            </p>
+                            <div class="category-tags">
+                                <a href="" class="category-tag">Аграрно-технологический институт</a>
+                                <a href="" class="category-tag">Агрокомплекс</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+
+                    function addQuery(key, val)
+                    {
+
+
+                        if(!(key in q))
+                        {
+                            q[key] = [];
+                            q[key].push(val);
+                            return;
+                        }
+
+                        let index = q[key].indexOf(val);
+                        if(-1 < index)
+                        {
+                            q[key].splice(index, 1);
+
+                            if(0 == q[key].length)
+                            {
+                                delete q[key];
+                                return;
+                            }
+                            return;
+                        }
+
+                        q[key].push(val);
+                    }
+
+
+                    const results = document.getElementById('results');
+                    const input = document.getElementById('search-input');
+
+                    async function search()
+                    {
+                        if(input.value)
+                        {
+                            q['str'] = input.value;
+                        }
+                        else
+                        {
+                            delete q['str'];
+                        }
+                        const response = await fetch('/find', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(q)
+                        });
+                        const data = await response.text();
+                        results.innerHTML = data;
+                    }
+
+                    search()
+
+
+                    const categoriesUpload = document.getElementById('categories-upload');
+
+                    async function counters()
+                    {
+                        const response = await fetch('/counters', {
+                            method: 'GET'
+                        });
+                        const data = await response.text();
+                        categoriesUpload.innerHTML = data;
+                    }
+
+                    counters()
+                </script>
+                
+                <div style="display:flex; flex-direction: row; justify-content: center;">
+                    <button id="useless-show-more-button-because-pagination-is-not-complex-enough">
+                        <span>Показать больше результатов</span>
+                    </button>
+                </div>
+                
+
+                
+
+                <footer id="footer">
+                    <nav id="too-complex-navbar-for-literally-no-reason">
+                        <a href="https://www.rudn.ru/" aria-label="Результаты интеллектуальной деятельности" style="margin: 0 2rem .5rem 0;">
+                            <img id="footer-logo-rudn" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/footer-logo.png">
+                        </a>
+        
+                        <ul style="list-style-type: none; padding: 0; margin: 0;">
+                            <li class="point">
+                                <a class="footer-link" href="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/about.pdf">
+                                    О проекте
+                                </a>
+                            </li>
+                            <li class="point">
+                                <a class="footer-link" href="https://lib.rudn.ru/contacts">
+                                    Контакты
+                                </a>
+                            </li>
+                        </ul>
+        
+                        <ul style="list-style-type: none; padding: 0; margin: 0;">
+                            <li class="point">
+                                <a class="footer-link" href="https://lib.rudn.ru">
+                                    Научная библиотека РУДН
+                                </a>
+                            </li>
+                            <li class="point">
+                                <a class="footer-link" href="">
+                                    Научное управление РУДН
+                                </a>
+                            </li>
+                        </ul>
+        
+                        <ul style="list-style-type: none; padding: 0; margin: 0;">
+                            <li class="point">
+                                <a class="footer-link" href="https://repository.rudn.ru/ru/">
+                                    Репозиторий РУДН
+                                </a>
+                            </li>
+                            <li class="point">
+                                <a class="footer-link" href="">
+                                    Личный кабинет РУДН
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul style="list-style-type: none; padding: 0; margin: 0;">
+                            <li class="point">
+                                <a class="footer-link" href="https://rospatent.gov.ru/ru">
+                                    Роспатент
+                                </a>
+                            </li>
+                            <li class="point">
+                                <a class="footer-link" href="https://www.fips.ru/">
+                                    ФИПС
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul style="list-style-type: none; padding: 0; margin: 0;">
+                            <li class="point">
+                                <a class="footer-link" href="https://rosvois.ru/">
+                                    ВОИС
+                                </a>
+                            </li>
+                            <li class="point">
+                                <a class="footer-link" href="https://www.wipo.int/portal/ru/">
+                                    WIPO
+                                </a>
+                            </li>
+                        </ul>
+        
+                        <ul style="list-style-type: none; padding: 0; margin: 0;">
+                            <li class="point">
+                                <a class="footer-link" href="https://www.eapo.org/">
+                                    ЕАПО
+                                </a>
+                            </li>
+                            <li class="point">
+                                <a class="footer-link" href="https://www.fips.ru/publication-web/classification/mpk?view=list">
+                                    МПК
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    
+                    <p style="font-size: .9rem;">
+                        © 2025 РУДН им. Патриса Лумумбы | <a href="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/policy.pdf">Политика конфиденциальности</a>
+                    </p>
+        
+                </footer>
+            </section>
+        </section>
+
+        <div class="modal" id="modal00" style="display: none;">
+            <div class="t-click-outside" id="outside00">
+                <div style="background: linear-gradient(to top, #1b2fa3, #a331a3, #ff6f61); padding: 2px; border-radius: 25px;">
+                    <div style="background-color: #ffffff; padding: 1rem 3rem; border-radius: inherit; max-width: 40rem;">
+                        <div style="display: flex; flex-direction: row; justify-content: end; margin-right: -2rem;">
+                            <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/close-cross.svg" style="block-size: 2rem;" onclick="overlay00.style.display = 'none'; document.getElementById('copied-thingy').style.display = 'none'">
+                        </div>
+                        <h2 style="font-weight: 900; font-size: 2rem; margin-bottom: 3rem;">Контакты</h2>
+                        <p><span style="font-size: 2rem;">Центр Трансфера Технологий РУДН</span></p>
+
+                        <div style="display: flex; flex-direction: row; gap: 1rem;">
+                            <button onclick="navigator.clipboard.writeText('techtransfer@rudn.ru'); document.getElementById('copied-thingy').style.display = 'block'" class="copy-button">
+                                techtransfer@rudn.ru
+                                <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/copy.svg" style="block-size: 1rem;">
+                            </button>
+                            <p id="copied-thingy" style="margin: 0; padding: .5rem 1rem; border-radius: 25px; background-color: #ff6f61; color:#ffffff; display:none;">copied</p>
+                        </div>
+                        
+                        <div style="display: flex; flex-direction: row; justify-content: end;">
+                            <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/contacts.svg" style="block-size: 8rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            const overlay00 = document.getElementById('modal00');
+            const modalContent00 = document.getElementById('outside00');
+            const thingy = document.getElementById('copied-thingy');
+
+            overlay00.addEventListener('click', (e) => {
+                const isClickInsideContent = modalContent00.contains(e.target);
+                if (!isClickInsideContent){
+                    thingy.style.display = 'none';
+                    overlay00.style.display = 'none';
+                }
+            });
+
+        </script>
+        
+    </body>
+</html>
