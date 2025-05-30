@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Что такое РИД</title>
+    </head>
+    <link rel="stylesheet" href="definitions/assets/content.css">
+
+
+    <body>
+        <header id="navbar">
+            <div id="title">
+                <a id="logo" href="/" aria-label="Результаты интеллектуальной деятельности">
+                    <img id="logo-rudn" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/header-logo.png">
+                </a>
+                <a id="title-name-header1" href="/">
+                    Результаты интеллектуальной деятельности РУДН
+                </a>
+            </div>
+            <div>
+                 <!-- REMAKE -->
+                <form action="/portfolio" method="get" id="navigation-search">
+                    <input id="navigation-search-input" autocomplete="off" placeholder="поиск по базе РИД" value="" name="for" type="text" aria-haspopup="false" aria-autocomplete="both" dir="ltr" spellcheck="false">
+                    <button class="button-for-special-people" style="background: none; border: none;">
+                        <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/search.svg">
+                    </button>
+                </form>
+                <div id="right-header-side">
+                    <a class="button-for-special-people" href="/registration" target="_top"><span style="padding: 14px;">Регистрация РИД</span></a>
+                    <a class="button-for-special-people" href="https://lib.rudn.ru/" target="_top"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/non-stereotipical-library-symbol.svg"></a>
+                    <a class="button-for-special-people" onclick="overlay1.style.display = 'flex'" target="_top"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/retro-mail.svg"></a>
+                </div>
+            </div>
+        </header>
+
+        <div style="font-size: 1.1rem; color: #747474; margin: 2rem;"><a href="/" class="footer-link">Главная</a> / Всё о РИД</div>
+
+
+        <section class="content-container">
+            <div class="content-body">
+                <p id="lead" class="centered">
+                    <span id="lead-inner-header" style="font-weight: 900;">Результат <br> интеллектуальной деятельности</span> <br>
+                    нематериальный продукт, которому предоставляется правовая охрана
+                </p>
+            </div>
+        </section>
+
+        <section class="content-container" style="margin-bottom: -6rem;">
+            <div class="content-body mobile-wrapper">
+                <div id="cards-describtion">
+                    <div style="display: flex; flex-direction: row; justify-content: left; gap: .5rem; align-items: center;">
+                        <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/tasteless-cubes.svg">
+                        <h1 style="font-weight: 900;">ВИДЫ</h1>
+                    </div>
+                    <p style="font-size: 1rem; font-weight: lighter;">
+                        Откройте для себя разнообразие форм интеллектуальной собственности: от изобретений и полезных моделей до промышленных образцов и авторских прав
+                    </p>
+                </div>
+
+                
+                <div style="display: flex; flex-direction: row; align-items: center; max-width:52rem;">
+                    <img class="small-pointer" style="block-size: 2rem; transform:rotate(90deg)" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/expand.svg">
+                
+                    <div id="cards" style="padding: 0.9rem; gap: 1rem;">
+    
+                        <div class="card fade" style="display: block;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/sal.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Произведения науки, литературы и искусства
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                оригинальные результаты творческой деятельности в области науки, литературы или искусства, выраженные в объективной форме (например, книги, картины, музыкальные произведения)
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: block; transform: scale(1.05);">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/pro.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Программы для ЭВМ
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                наборы инструкций и данных, предназначенные для функционирования компьютеров с целью выполнения определенных задач
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: block;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/db.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Базы данных
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                систематизированные коллекции данных, организованные таким образом, чтобы облегчить их поиск и использование
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/exe.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Исполнения
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                результаты творческой деятельности исполнителей (актеров, музыкантов, танцоров), воплощенные в процессе публичного представления произведений
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/pho.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Фонограммы
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                записи звуков, включая музыку, речь или другие звуки, зафиксированные на материальном носителе
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/mes.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Сообщение в эфир или по кабелю радио- или телепередач
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                передача программ радио- или телевещательных организаций через эфир или кабельную сеть
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/inv.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Изобретения
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                технические решения, обладающие новизной и промышленной применимостью, направленные на улучшение существующих технологий или создание новых
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/mod.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Полезные модели
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                новые конструктивные решения устройств, которые обладают промышленной применимостью
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/ref.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Промышленные образцы
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                художественно-конструкторские решения изделий промышленного или кустарно-ремесленного производства, определяющие их внешний вид
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/sel.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Селекционные достижения
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                выведенные человеком сорта растений или породы животных, обладающие новыми свойствами
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/top.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Топологии интегральных микросхем
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                геометрическое расположение элементов интегральной схемы, предназначенное для ее изготовления и эксплуатации
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/k-h.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Секреты производства (ноу-хау)
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                конфиденциальная информация технического, организационного или коммерческого характера, используемая в производстве и представляющая коммерческую ценность.
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/nam.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Фирменные наименования
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                название юридического лица, которое используется для индивидуализации предприятия
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/lab.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Товарные знаки и знаки обслуживания
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                обозначения, служащие для индивидуализации товаров или услуг одного производителя от аналогичных товаров или услуг других производителей
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/loc.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Географические указания
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                названия географического объекта, указывающие на происхождение товара, свойства которого связаны с данным объектом
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/or.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Наименования мест происхождения товаров
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;">
+                                обозначение места, где производится товар, уникальные характеристики которого определяются природными условиями данного региона
+                            </p>
+                        </div>
+                        <div class="card fade" style="display: none;">
+                            <div style="margin: 0 0 2rem 0; display: flex; flex-direction: row; justify-content: left; gap: 1rem; align-items: center;">
+                                <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/patent-types/com.svg">
+                                <h2 style="font-size: 1.2rem; margin: 0;">
+                                    Коммерческие обозначения
+                                </h2>
+                            </div>
+                            <p style="margin: 0 .3rem .5rem 0; font-size: 1rem;"> 
+                                обозначения, используемые для индивидуализации торговых, промышленных и иных предприятий
+                            </p>
+                        </div>
+                    </div>
+    
+                    <img class="small-pointer" style="block-size: 2rem; transform:rotate(-90deg)" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/expand.svg">
+                </div>
+
+                <script>
+                    if(document.body.clientWidth < 70.125*16)
+                    {
+                        const cardArr = document.getElementById('cards').children;
+                        for(let i = 0; i < cardArr.length; i++)
+                        {
+                            cardArr[i].style.display = 'block';
+                        }
+                        cardArr[1].style.transform = 'scale(1)';
+                    }
+                    else
+                    {
+                        const cards = document.getElementById('cards');
+                        const cardArr = cards.children;
+                        const len = cardArr.length;
+                        let a = (Number.MAX_SAFE_INTEGER-1)/2-(Number.MAX_SAFE_INTEGER%len);
+
+
+                        cards.addEventListener("wheel", function (e)
+                        {
+                            if (e.deltaX || cards.scrollWidth <= cards.clientWidth)
+                            {
+                                return;
+                            }
+
+                            e.preventDefault();
+
+                            setTimeout(()=>{
+                                cardArr[(a-1)%len].style.display = 'none';
+                                cardArr[(a)%len].style.display = 'none';
+                                cardArr[(a)%len].style.transform = 'scale(1)';
+                                cardArr[(a+1)%len].style.display = 'none';
+                                
+                                a += Math.sign(e.deltaY);
+
+                                cardArr[(a-1)%len].style.order = '1';
+                                cardArr[(a)%len].style.order = '2';
+                                cardArr[(a)%len].style.transform = 'scale(1.05)';
+                                cardArr[(a+1)%len].style.order = '3';
+
+                                cardArr[(a-1)%len].style.display = 'block';
+                                cardArr[(a)%len].style.display = 'block';
+                                cardArr[(a+1)%len].style.display = 'block';
+                            }, 100);
+                        });
+                    }
+                </script>
+
+            </div>
+        </section>
+
+        <script>
+            const CATEGORY_ID_END = 7;
+
+            function hideCategoryList(id)
+            {
+                const list = document.getElementById("expand-area-"+id[CATEGORY_ID_END]);
+                
+                if(list.style.display === "none")
+                {
+                    document.getElementById(id).style.transform = 'rotate(0)';
+                    list.style.display = "block";
+                }
+                else
+                {
+                    document.getElementById(id).style.transform = 'rotate(180deg)';
+                    list.style.display = "none";
+                }
+            }
+        </script>
+        
+        <section class="content-container" style="background: linear-gradient(to bottom, #1b2fa3, #a331a3, #ff6f61); padding: 8rem 0 13rem 0;">
+            <div id="docs" class="content-body">
+
+                <h1 style="font-size: 3rem; margin: 2rem 0 1rem 0; color: #ffffff; background: linear-gradient(45deg, #ffffff, #e0e0e0, #ffffff);
+                background-clip: text;
+                font-weight: 900;">
+                    Авторское право
+                </h1>
+
+                <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: 4rem;">
+                    <div>
+                        <p style="font-size: 1.5rem; color: #ffffff;">
+                            вид интеллектуального права, которое охраняет результат творческой деятельности: <br> произведения науки, литературы, искусства
+                        </p>
+        
+                        <p style="font-size: 1.5rem; color: #ffffff;">
+                            Авторским правом защищен РИД целиком и любая его часть
+                        </p>
+                    </div>
+                    <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/copyright.svg">
+                </div>
+
+                <h1 style="font-size: 3rem; margin: 2rem 0 1rem 0; color: #ffffff; background: linear-gradient(45deg, #ffffff, #e0e0e0, #ffffff);
+                background-clip: text;
+                font-weight: 900;">
+                    Смежные права
+                </h1>
+
+                <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: 4rem;">
+                    <div>
+                        <p style="font-size: 1.5rem; color: #ffffff;">
+                            охраняют интересы исполнителей, производителей фонограмм, изготовителей баз данных, а также произведений науки, литературы и искусства (в части охраны прав публикаторов таких произведений)
+                        </p>
+                    </div>
+                </div>
+
+                <h1 style="font-size: 3rem; margin: 2rem 0 1rem 0; color: #ffffff; background: linear-gradient(45deg, #ffffff, #e0e0e0, #ffffff);
+                background-clip: text;
+                font-weight: 900;">
+                    Патентное право
+                </h1>
+
+                <div style="display: flex; flex-direction: row; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: 4rem;">
+                    <div>
+                        <p style="font-size: 1.5rem; color: #ffffff;">
+                            институт гражданского права, который регулирует правоотношения, связанные с созданием и использованием объектов интеллектуальной собственности, охраняемых патентом
+                        </p>
+        
+                        <p style="font-size: 1.5rem; color: #ffffff;">
+                            По закону исключительное право на изобретение признается и охраняется только в случае, если изобретение прошло государственную регистрацию (ст. 1353 ГК РФ)
+                        </p>
+                    </div>
+                </div>
+
+                <div style="display: flex; flex-direction: row; justify-content: center;">
+                    <a class="button" href="https://rospatent.gov.ru/ru/docs" target="_top" id="hover-button" style="transition: transform .2s;"><span style="padding: 14px;" >НОРМАТИВНЫЕ ДОКУМЕНТЫ</span></a>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="content-container">
+            <div class="content-body">
+                <div style="display: flex; flex-direction: row; justify-content: center; margin: -13rem 1rem 1rem 1rem;">
+                    <video controls width="500" height="281" style="border-radius: 25px; max-width: 100%; height: auto; border: 1px solid #7c7c7c" poster="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/videos/preview1.jpg">
+                        <source src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/videos/vid1-rights.mp4" type="video/mp4"/>
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </section>
+
+        <footer id="footer">
+            <nav id="too-complex-navbar-for-literally-no-reason">
+                <a href="https://www.rudn.ru/" aria-label="Результаты интеллектуальной деятельности" style="margin: 0 2rem .5rem 0;">
+                    <img id="footer-logo-rudn" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/footer-logo.png">
+                </a>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/about.pdf">
+                            О проекте
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://lib.rudn.ru/contacts">
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://lib.rudn.ru">
+                            Научная библиотека РУДН
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="">
+                            Научное управление РУДН
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://repository.rudn.ru/ru/">
+                            Репозиторий РУДН
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="">
+                            Личный кабинет РУДН
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://rospatent.gov.ru/ru">
+                            Роспатент
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://www.fips.ru/">
+                            ФИПС
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://rosvois.ru/">
+                            ВОИС
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://www.wipo.int/portal/ru/">
+                            WIPO
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://www.eapo.org/">
+                            ЕАПО
+                        </a>
+                    </li>
+
+                    <li class="point">
+                        <a class="footer-link" href="https://www.fips.ru/publication-web/classification/mpk?view=list">
+                            МПК
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <p style="font-size: .9rem;">
+                © 2025 РУДН им. Патриса Лумумбы | <a href="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/policy.pdf">Политика конфиденциальности</a>
+            </p>
+
+        </footer>
+
+        <div class="modal" id="modal1" style="display: none;">
+            <div class="t-click-outside" id="outside1">
+                <div style="background: linear-gradient(to top, #1b2fa3, #a331a3, #ff6f61); padding: 2px; border-radius: 25px;">
+                    <div style="background-color: #ffffff; padding: 1rem 3rem; border-radius: inherit; max-width: 40rem;">
+                        <div style="display: flex; flex-direction: row; justify-content: end; margin-right: -2rem;">
+                            <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/close-cross.svg" style="block-size: 2rem;" onclick="overlay1.style.display = 'none'; document.getElementById('copied-thingy').style.display = 'none'">
+                        </div>
+                        <h2 style="font-weight: 900; font-size: 2rem; margin-bottom: 3rem;">Контакты</h2>
+                        <p><span style="font-size: 2rem;">Центр Трансфера Технологий РУДН</span></p>
+
+                        <div style="display: flex; flex-direction: row; gap: 1rem;">
+                            <button onclick="navigator.clipboard.writeText('techtransfer@rudn.ru'); document.getElementById('copied-thingy').style.display = 'block'" class="copy-button">
+                                techtransfer@rudn.ru
+                                <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/copy.svg" style="block-size: 1rem;">
+                            </button>
+                            <p id="copied-thingy" style="margin: 0; padding: .5rem 1rem; border-radius: 25px; background-color: #ff6f61; color:#ffffff; display:none;">copied</p>
+                        </div>
+                        
+                        <div style="display: flex; flex-direction: row; justify-content: end;">
+                            <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/contacts.svg" style="block-size: 8rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            const overlay1 = document.getElementById('modal1');
+            const modalContent1 = document.getElementById('outside1');
+
+            overlay1.addEventListener('click', (e) => {
+                const isClickInsideContent = modalContent1.contains(e.target);
+                if (!isClickInsideContent){
+                    overlay1.style.display = 'none';
+                }
+            });
+
+        </script>
+
+    </body>
+</html>
