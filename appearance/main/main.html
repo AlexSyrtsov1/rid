@@ -1,1 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>РИД РУДН</title>
+    </head>
+    <link rel="stylesheet" href="main/assets/content.css">
 
+
+
+    <body>
+        
+        <header id="navbar">
+            <div id="title">
+                <a id="logo" href="/" aria-label="Результаты интеллектуальной деятельности">
+                    <img id="logo-rudn" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/header-logo.png">
+                </a>
+                <a id="title-name-header1" href="/">
+                    Результаты интеллектуальной деятельности РУДН
+                </a>
+            </div>
+            <div>
+                 <!-- REMAKE -->
+                <form action="/portfolio" method="get" id="navigation-search">
+                    <input id="navigation-search-input" autocomplete="off" placeholder="поиск по базе РИД" value="" name="for" type="text" aria-haspopup="false" aria-autocomplete="both" dir="ltr" spellcheck="false">
+                    <button class="button-for-special-people" style="background: none; border: none;">
+                        <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/search.svg">
+                    </button>
+                </form>
+                <div id="right-header-side">
+                    <a class="button-for-special-people" href="/registration" target="_top"><span style="padding: 14px;">Регистрация РИД</span></a>
+                    <a class="button-for-special-people" href="https://lib.rudn.ru/" target="_top"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/non-stereotipical-library-symbol.svg"></a>
+                    <a class="button-for-special-people" onclick="overlay00.style.display = 'flex'" target="_top"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/retro-mail.svg"></a>
+                </div>
+            </div>
+        </header>
+
+
+        <section class="content-container" style="margin-bottom: -20rem;">
+            <div class="content-body">
+                    <p id="lead" class="centered">
+                        <span id="learn-part" style="font-weight: bold; font-size: 4rem;">РИД РУДН</span>
+                        <br>
+                        умные решения,<br id="specific-break"> воплощённые в технологиях
+                    </p>
+            
+
+                <div id="featured-tech" style="margin-bottom: 5rem;">
+                    <div id="featured-tech-with-magic-border">
+                        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+                            <h1 style="font-size: 1.3rem; margin: 1rem 0 3rem 0; font-weight: normal;">
+                                Лучшие достижения
+                            </h1>
+                            <img style="block-size: 8rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/best-icon-of-all-time-but-animated-with-sparcles-ahh-what-a-miracle.svg">
+                        </div>
+                        <div id="upload" style="height: 20rem;">
+                            
+                        </div>
+                        <div style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+                            <div style="display: flex; flex-direction: row; gap: 1rem">
+                                <button id="move-left" style="background-color: transparent; border: 0;">
+                                    <img style="block-size: 1.5rem; transform: rotate(90deg);" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/expand.svg">
+                                </button>
+                                <button id="move-right" style="background-color: transparent; border: 0;">
+                                    <img style="block-size: 1.5rem; transform: rotate(-90deg); fill: #fff" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/expand.svg">
+                                </button>
+                            </div>
+                            <a href="/portfolio" style="text-decoration: none; color: #ffffff; font-size: 1.07rem;">Все РИД РУДН ></a>
+                        </div>
+
+                        <script>
+                            const results = document.getElementById('upload');
+
+                            async function load()
+                            {
+                                const response = await fetch('/best', {
+                                    method: 'GET'
+                                });
+                                const data = await response.text();
+                                results.innerHTML = data;
+                            }
+
+                            load().then(
+                                () => {
+                                    const cards = document.getElementById('upload');
+                                    const cardArr = cards.children;
+                                    const len = cardArr.length;
+                                    let a = (Number.MAX_SAFE_INTEGER-1)/2-(Number.MAX_SAFE_INTEGER-1)/2%len;
+                                    console.log(a%len)
+                                    cardArr[a%len].style.display = 'block';
+
+                                    document.querySelectorAll('.display-frames').forEach(function(frame) {
+                                        frame.innerHTML = frame.innerHTML.replace(/&nbsp;/g, ' ');
+                                    });
+
+                                    document.getElementById('move-left').addEventListener('click', ()=>{
+                                        cardArr[a%len].style.display = 'none';
+                                        cardArr[(--a)%len].style.display = 'block';
+                                    })
+                                    document.getElementById('move-right').addEventListener('click', ()=>{
+                                        cardArr[a%len].style.display = 'none';
+                                        cardArr[(++a)%len].style.display = 'block';
+                                    })
+                                }
+                            )
+
+                            
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cc-wrap" class="content-container" style="background: linear-gradient(to bottom, #1b2fa3, #a331a3, #ff6f61); padding-top: 20rem;">
+            <div id="categories-container" class="content-body">
+
+                <h1 class="centered" style="font-size: 3rem; margin: 2rem 0; color: #ffffff; background: linear-gradient(45deg, #ffffff, #e0e0e0, #ffffff);
+                background-clip: text;
+                font-weight: bold;">
+                    Разработки РУДН
+                </h1>
+                <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 4rem;">
+                    <form id="search" action="/portfolio" method="get">
+                        <input id="search-input" autocomplete="off" placeholder="" value="" name="for" type="text" aria-haspopup="false" aria-autocomplete="both" dir="ltr" spellcheck="false">
+                        <button class="search-button">
+                            <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/search-but-blue.svg">
+                        </button>
+                        <button class="search-button">
+                        </button>
+                    </form>
+                </div>
+
+
+                <div class="categories">
+                    <div class="category">
+                        <a style="color: #ffffff; text-decoration: none; text-decoration: none;" href="/portfolio">
+                            <div class="label">Смотреть все</div>
+                        </a>
+                    </div>
+                    <div class="category">
+                        <a style="color: #ffffff; text-decoration: none; text-decoration: none;" href="/">
+                            <div class="icon"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/subjects/hum.svg"></div>
+                            <div class="label">Гуманитарные науки</div>
+                        </a>
+                    </div>
+                    <div class="category">
+                        <a style="color: #ffffff; text-decoration: none; text-decoration: none;" href="/">
+                            <div class="icon"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/subjects/eng.svg"></div>
+                            <div class="label">Инженерные науки</div>
+                        </a>
+                    </div>
+                    <div class="category">
+                        <a style="color: #ffffff; text-decoration: none; text-decoration: none;" href="/">
+                            <div class="icon"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/subjects/science.svg"></div>
+                            <div class="label">Математические<br>и естественные науки</div>
+                        </a>
+                    </div>
+                    <div class="category">
+                        <a style="color: #ffffff; text-decoration: none;" href="/">
+                            <div class="icon"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/subjects/med.svg"></div>
+                            <div class="label">Медицинские науки</div>
+                        </a>
+                    </div>
+                    <div class="category">
+                        <a style="color: #ffffff; text-decoration: none;" href="/">
+                            <div class="icon"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/subjects/soc.svg"></div>
+                            <div class="label">Науки об обществе</div>
+                        </a>
+                    </div>
+                    <div class="category">
+                        <a style="color: #ffffff; text-decoration: none;" href="/">
+                            <div class="icon"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/subjects/ac.svg"></div>
+                            <div class="label">Сельское хозяйство</div>
+                        </a>
+                    </div>
+                    <div class="category">
+                        <a style="color: #ffffff; text-decoration: none;" href="/">
+                            <div class="icon"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/subjects/eco.svg"></div>
+                            <div class="label">Экология</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="learn-container" class="content-container">
+            <div class="content-body" style="background-color: #20015a; border-radius: 25px;">
+                <div id="learn">
+                    <h1 id="learn-header">
+                        Узнать больше
+                    </h1>
+
+                    <div id="cards">
+        
+                        <a class="card" href="/definitions">
+                            <h2 style="font-size: 1.5rem; margin: 0 0 2rem 0; font-weight: 700;">
+                                Всё о РИД
+                            </h2>
+                            <p style="margin: 0 .3rem .5rem 0;">
+                                виды</p><p style="margin: 0 .3rem .5rem 0;">нормативные документы</p><p style="margin: 0 .3rem .5rem 0;">охрана прав на интеллектуальную собственность
+                            </p>
+                        </a>
+
+                        <a class="card" href="/search">
+                            <h2 style="font-size: 1.5rem; margin: 0 0 2rem 0; font-weight: 700;">
+                                Поиск
+                            </h2>
+                            <p>
+                                поисковые ресурсы</p><p style="margin: 0 .3rem .5rem 0;">советы по проведению поиска</p><p style="margin: 0 .3rem .5rem 0;">рекомендации по составлению запросов
+                            </p>
+                        </a>
+        
+                        <a class="card" href="/registration">
+                            <h2 style="font-size: 1.5rem; margin: 0 0 2rem 0; font-weight: 700;">
+                                Регистрация
+                            </h2>
+                            <p style="margin: 0 .3rem .5rem 0;">
+                                защита идей</p><p style="margin: 0 .3rem .5rem 0;">документация</p><p style="margin: 0 .3rem .5rem 0;">особенности подачи заявок
+                            </p>
+                        </a>
+
+                        <a class="card" href="/commerce">
+                            <h2 style="font-size: 1.2rem; margin: 0 0 2rem 0; font-weight: 700;">
+                                Коммерциализация
+                            </h2>
+                            <p style="margin: 0 .3rem .5rem 0;">
+                                РУДН поможет вам коммерциализировать разработки и идеи</p>
+                        </a>
+                    </div>
+
+                    <div style="display: flex; flex-direction: row; justify-content: right;">
+                        <a onclick="overlay00.style.display = 'flex'" style="cursor: pointer; color: #ffffff; font-size: 1.07rem;">Запись на консультацию ></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+            
+
+        <footer id="footer">
+            <nav id="too-complex-navbar-for-literally-no-reason">
+                <a href="https://www.rudn.ru/" aria-label="Результаты интеллектуальной деятельности" style="margin: 0 2rem .5rem 0;">
+                    <img id="footer-logo-rudn" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/footer-logo.png">
+                </a>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/about.pdf">
+                            О проекте
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://lib.rudn.ru/contacts">
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://lib.rudn.ru">
+                            Научная библиотека РУДН
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="">
+                            Научное управление РУДН
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://repository.rudn.ru/ru/">
+                            Репозиторий РУДН
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://id.rudn.ru/sign-in">
+                            Личный кабинет РУДН
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://rospatent.gov.ru/ru">
+                            Роспатент
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://www.fips.ru/">
+                            ФИПС
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://rosvois.ru/">
+                            ВОИС
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://www.wipo.int/portal/ru/">
+                            WIPO
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://www.eapo.org/">
+                            ЕАПО
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://www.fips.ru/publication-web/classification/mpk?view=list">
+                            МПК
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <p style="font-size: .9rem;">
+                © 2025 РУДН им. Патриса Лумумбы | <a href="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/policy.pdf">Политика конфиденциальности</a>
+            </p>
+
+        </footer>
+
+        <div class="modal" id="modal00" style="display: none;">
+            <div class="t-click-outside" id="outside00">
+                <div style="background: linear-gradient(to top, #1b2fa3, #a331a3, #ff6f61); padding: 2px; border-radius: 25px;">
+                    <div style="background-color: #ffffff; padding: 1rem 3rem; border-radius: inherit; max-width: 40rem;">
+                        <div style="display: flex; flex-direction: row; justify-content: end; margin-right: -2rem;">
+                            <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/close-cross.svg" style="block-size: 2rem;" onclick="overlay00.style.display = 'none'; document.getElementById('copied-thingy').style.display = 'none'">
+                        </div>
+                        <h2 style="font-weight: 900; font-size: 2rem; margin-bottom: 3rem;">Контакты</h2>
+                        <p><span style="font-size: 2rem;">Центр Трансфера Технологий РУДН</span></p>
+
+                        <div style="display: flex; flex-direction: row; gap: 1rem;">
+                            <button onclick="navigator.clipboard.writeText('techtransfer@rudn.ru'); document.getElementById('copied-thingy').style.display = 'block'" class="copy-button">
+                                techtransfer@rudn.ru
+                                <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/copy.svg" style="block-size: 1rem;">
+                            </button>
+                            <p id="copied-thingy" style="margin: 0; padding: .5rem 1rem; border-radius: 25px; background-color: #ff6f61; color:#ffffff; display:none;">copied</p>
+                        </div>
+                        
+                        <div style="display: flex; flex-direction: row; justify-content: end;">
+                            <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/contacts.svg" style="block-size: 8rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            const overlay00 = document.getElementById('modal00');
+            const modalContent00 = document.getElementById('outside00');
+
+            overlay00.addEventListener('click', (e) => {
+                const isClickInsideContent = modalContent00.contains(e.target);
+                if (!isClickInsideContent){
+                    overlay00.style.display = 'none';
+                }
+            });
+
+        </script>
+    </body>
+</html>
