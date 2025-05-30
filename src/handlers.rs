@@ -66,7 +66,7 @@ struct Rid
 
 pub async fn index(name: web::Path<String>/*, search_request: web::Json<HashMap<String, serde_json::Value>>*/) -> impl Responder
 {
-    let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearence/{}/{}.html", &name, &name);
+    let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/{}/{}.html", &name, &name);
     let body = std::fs::read_to_string(file_path).unwrap();
     HttpResponse::Ok()
         .content_type("text/html; charset=utf-8")
@@ -75,7 +75,7 @@ pub async fn index(name: web::Path<String>/*, search_request: web::Json<HashMap<
 
 // pub async fn index_find(name: web::Path<String>/*, search_request: web::Json<HashMap<String, serde_json::Value>>*/) -> impl Responder
 // {
-//     let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearence/{}/{}.html", &name, &name);
+//     let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/{}/{}.html", &name, &name);
 //     let body = std::fs::read_to_string(file_path).unwrap();
 //     HttpResponse::Ok()
 //         .content_type("text/html; charset=utf-8")
@@ -84,7 +84,7 @@ pub async fn index(name: web::Path<String>/*, search_request: web::Json<HashMap<
 
 pub async fn main_page() -> impl Responder
 {
-    let body = std::fs::read_to_string("C:/Users/syrtsov_ayu/projects/site/server/appearence/main/main.html").unwrap();
+    let body = std::fs::read_to_string("C:/Users/syrtsov_ayu/projects/site/server/appearance/main/main.html").unwrap();
     HttpResponse::Ok()
         .content_type("text/html; charset=utf-8")
         .body(body)
@@ -92,7 +92,7 @@ pub async fn main_page() -> impl Responder
 
 pub async fn styles(name: web::Path<String>) -> impl Responder
 {
-    let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearence/{}/content.css", &name);
+    let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/{}/content.css", &name);
     let body = std::fs::read_to_string(file_path).unwrap();
     HttpResponse::Ok()
         .content_type("text/css; charset=utf-8")
@@ -101,7 +101,7 @@ pub async fn styles(name: web::Path<String>) -> impl Responder
 
 pub async fn scripts(name: web::Path<String>) -> impl Responder
 {
-    let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearence/{}/{}.js", &name, &name);
+    let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/{}/{}.js", &name, &name);
     let body = std::fs::read_to_string(file_path).unwrap();
     HttpResponse::Ok()
         .content_type("application/javascript; charset=utf-8")
@@ -110,7 +110,7 @@ pub async fn scripts(name: web::Path<String>) -> impl Responder
 
 pub async fn png(file: web::Path<String>) -> impl Responder
 {
-    let image = format!("C:/Users/syrtsov_ayu/projects/site/server/appearence/images/{}.png", &file);
+    let image = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/images/{}.png", &file);
     let body = std::fs::read(image).unwrap();
     HttpResponse::Ok()
     .content_type("image/png")
@@ -119,7 +119,7 @@ pub async fn png(file: web::Path<String>) -> impl Responder
 
 pub async fn svg(file: web::Path<String>) -> impl Responder
 {
-    let image = format!("C:/Users/syrtsov_ayu/projects/site/server/appearence/images/{}.svg", &file);
+    let image = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/images/{}.svg", &file);
     let body = std::fs::read(image).unwrap();
     HttpResponse::Ok()
     .content_type("image/svg+xml")
@@ -128,7 +128,7 @@ pub async fn svg(file: web::Path<String>) -> impl Responder
 
 pub async fn fonts(file: web::Path<String>) -> impl Responder
 {
-    let image = format!("C:/Users/syrtsov_ayu/projects/site/server/appearence/fonts/{}.ttf", &file);
+    let image = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/fonts/{}.ttf", &file);
     let body = std::fs::read(image).unwrap();
     HttpResponse::Ok()
     .content_type("font/ttf")
