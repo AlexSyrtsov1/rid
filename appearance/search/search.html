@@ -1,1 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Поиск</title>
+    </head>
+    <link rel="stylesheet" href="search/assets/content.css">
 
+
+    <body>
+        
+        
+        <header id="navbar">
+            <div id="title">
+                <a id="logo" href="/" aria-label="Результаты интеллектуальной деятельности">
+                    <img id="logo-rudn" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/header-logo.png">
+                </a>
+                <a id="title-name-header1" href="/">
+                    Результаты интеллектуальной деятельности РУДН
+                </a>
+            </div>
+            <div>
+                <!-- REMAKE -->
+                <form action="/portfolio" method="get" id="navigation-search">
+                    <input id="navigation-search-input" autocomplete="off" placeholder="поиск по базе РИД" value="" name="for" type="text" aria-haspopup="false" aria-autocomplete="both" dir="ltr" spellcheck="false">
+                    <button class="button-for-special-people" style="background: none; border: none;">
+                        <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/search.svg">
+                    </button>
+                </form>
+                <div id="right-header-side">
+                    <a class="button-for-special-people" href="/registration" target="_top"><span style="padding: 14px;">Регистрация РИД</span></a>
+                    <a class="button-for-special-people" href="https://lib.rudn.ru/" target="_top"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/non-stereotipical-library-symbol.svg"></a>
+                    <a class="button-for-special-people" onclick="overlay00.style.display = 'flex'" target="_top"><img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/retro-mail.svg"></a>
+                </div>
+            </div>
+        </header>
+
+        <div style="font-size: 1.1rem; color: #747474; margin: 2rem;"><a href="/" class="footer-link">Главная</a> / Поиск РИД </div>
+
+        <link rel="stylesheet" href="content.css">
+
+        <section class="content-container">
+            <div class="content-body">
+                <p id="lead" class="centered">
+                    <span id="lead-inner-header" style="font-weight: 900;">Поиск РИД</span> <br>
+                    официальные поисковые ресурсы — <br>
+                    надёжный путь к информации
+                </p>
+
+                <div class="button-block" style="margin-top: 5rem;">
+                    <a class="grad-button" href="https://searchplatform.rospatent.gov.ru/">
+                        <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/ros-but.svg">
+                        <span style="color: #ffffff; font-weight: 900; text-align: center;">ПОИСКОВАЯ ПЛАТФОРМА РОСПАТЕНТ</span>
+                    </a>
+                    <a class="grad-button" href="https://www.fips.ru/elektronnye-servisy/informatsionno-poiskovaya-sistema/">
+                        <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/fips-but.svg">
+                        <span style="color: #ffffff; font-weight: 900; text-align: center;">ПОИСКОВАЯ СИСТЕМА ФИПС</span>
+                    </a>
+                    <a class="grad-button" href="/portfolio">
+                        <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/rudn-but.svg">
+                        <span style="color: #ffffff; font-weight: 900; text-align: center;">ПОИСК ПО РИД РУДН</span>
+                    </a>
+                </div>
+
+                <div class="button-block">
+                    <a class="grad-button" href="https://yandex.ru/patents">
+                        <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/yan-but.svg">
+                        <span style="color: #ffffff; font-weight: 900; text-align: center;">ПАТЕНТЫ</span>
+                    </a>
+                    <a class="grad-button" href="https://patentscope.wipo.int/search/en/search.jsf">
+                        <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/pat-but.svg">
+                        <span style="color: #ffffff; font-weight: 900; text-align: center;">PATENTSCOPE</span>
+                    </a>
+                    <a class="grad-button" href="https://worldwide.espacenet.com/">
+                        <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/esp-but.svg">
+                        <span style="color: #ffffff; font-weight: 900; text-align: center;">ESPACENET</span>
+                    </a>
+                </div>
+
+                <div class="vid-panel" style="margin-top: 10rem;">
+                    <div>
+                        <h1 class="first-vid-desc">Поисковая платформа Роспатента</h1>
+                        <p class="first-vid-desc" style="padding-left: 9rem;">
+                            Точный и удобный поиск: <br> поиск патентов, программ для ЭВМ, баз данных, изображений, товарных знаков, непатентной литературы и другое
+                        </p>
+                    </div>
+                    <video controls="" width="500" height="281" style="border-radius: 25px; max-width: 100%; height: auto; border: 1px solid #7c7c7c" poster="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/videos/preview4.jpg">
+                        <source src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/videos/vid4-search.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div class="vid-panel">
+                    <video controls="" width="500" height="281" style="border-radius: 25px; max-width: 100%; height: auto; border: 1px solid #7c7c7c" poster="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/videos/preview5.jpg">
+                        <source src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/videos/vid5-algo-search.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div>
+                        <h1>Алгоритмы поиска на платформе Роспатента</h1>
+                        <p style="padding-right: 7rem;">
+                            Разные виды поиска: <br> от <a href="https://searchplatform.rospatent.gov.ru/" style="color: #a331a3;">простого</a> до <a href="https://searchplatform.rospatent.gov.ru/genetic" style="color: #a331a3;">продвинутого</a>
+                        </p>
+                    </div>
+                </div>
+
+                
+
+                <h1 style="color: #20015a; text-align: center;">Советы по проведению поиска</h1>
+                <ol id="s-list" style="list-style: none; padding: 0 1rem;">
+
+                    <li class="disappearing" style="box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2); background-color: #ffffff; padding: 2rem 3rem; margin: 1rem 0; border-radius: 25px; max-width: 100%; display: flex; align-items: center; flex-direction: row; gap: 1rem; justify-content: space-between;">
+                        <div>
+                            <h2>Используйте точные ключевые слова</h2>
+                            <p>для более эффективного поиска документов</p>
+                        </div>
+                        <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/tip-key.svg">
+                    </li>
+                    <li class="disappearing" style="box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2); background-color: #ffffff; padding: 2rem 3rem; margin: 1rem 0; border-radius: 25px; max-width: 100%; display: flex; align-items: center; flex-direction: row; gap: 1rem; justify-content: space-between;">
+                        <div>
+                            <h2>Применяйте фильтры</h2>
+                            <p>по типу документа, дате или статусу, чтобы сузить результаты</p>
+                        </div>
+                        <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/tip-fil.svg">
+                    </li>
+                    <li class="disappearing" style="box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2); background-color: #ffffff; padding: 2rem 3rem; margin: 1rem 0; border-radius: 25px; max-width: 100%; display: flex; align-items: center; flex-direction: row; gap: 1rem; justify-content: space-between;">
+                        <div>
+                            <h2>Используйте поисковые операторы</h2>
+                            <p>для уточнения запросов</p>
+                        </div>
+                        <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/tip-op.svg">
+                    </li>
+                    <li class="disappearing" style="box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2); background-color: #ffffff; padding: 2rem 3rem; margin: 1rem 0; border-radius: 25px; max-width: 100%; display: flex; align-items: center; flex-direction: row; gap: 1rem; justify-content: space-between;">
+                        <div>
+                            <h2>Проверяйте наличие синонимов и альтернативных терминов</h2>
+                            <p>для расширения поиска</p>
+                        </div>
+                        <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/tip-sin.svg">
+                    </li>
+                    <li class="disappearing" style="box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2); background-color: #ffffff; padding: 2rem 3rem; margin: 1rem 0; border-radius: 25px; max-width: 100%; display: flex; align-items: center; flex-direction: row; gap: 1rem; justify-content: space-between;">
+                        <div>
+                            <h2>Сохраняйте и экспортируйте результаты</h2>
+                            <p>в удобном формате для дальнейшего анализа</p>
+                        </div>
+                        <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/tip-for.svg">
+                    </li>
+                    <li class="disappearing" style="box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2); background-color: #ffffff; padding: 2rem 3rem; margin: 1rem 0; border-radius: 25px; max-width: 100%; display: flex; align-items: center; flex-direction: row; gap: 1rem; justify-content: space-between;">
+                        <div>
+                            <h2>Не забывайте использовать раздел «Помощь»</h2>
+                            <p>для решения возникающих <a href="https://searchplatform.rospatent.gov.ru/help" style="color: #a331a3;">вопросов</a></p>
+                        </div>
+                        <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/tip-hel.svg">
+                    </li>
+                    <li class="disappearing" style="box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2); background-color: #ffffff; padding: 2rem 3rem; margin: 1rem 0; border-radius: 25px; max-width: 100%; display: flex; align-items: center; flex-direction: row; gap: 1rem; justify-content: space-between;">
+                        <div>
+                            <h2>Ознакомьтесь с инструкцией по использованию платформы</h2>
+                            <p>для максимальной эффективности </p>
+                        </div>
+                        <img style="block-size: 3rem;" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/tip-ins.svg">
+                    </li>
+
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-container" style="background: linear-gradient(to bottom, #1b2fa3, #a331a3, #ff6f61);">
+            <div class="content-body">
+                <h1 style="color: #ffffff; text-align: center; margin-top: 5rem;">Рекомендации по составлению запросов</h1>
+                <div class="button-block" style="justify-content: center; gap: 3rem; margin-bottom: 5rem;">
+                    <a class="category" href="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D0%A0%D0%98%D0%94.%20%D0%9F%D1%80%D0%BE%D1%81%D1%82%D0%BE%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA.pdf">
+                        <span class="label">Простой поиск</span>
+                    </a>
+                    <a class="category" href="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/%D0%9F%D0%BE%D0%B8%D1%81%D0%BA%20%D0%A0%D0%98%D0%94%20%D1%80%D0%B0%D1%81%D1%88%D0%B8%D1%80%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BF%D0%BE%D0%B8%D1%81%D0%BA.pdf">
+                        <span class="label">Расширенный поиск</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <link rel="stylesheet" href="footer.css">
+        <footer id="footer">
+            <nav id="too-complex-navbar-for-literally-no-reason">
+                <a href="https://www.rudn.ru/" aria-label="Результаты интеллектуальной деятельности" style="margin: 0 2rem .5rem 0;">
+                    <img id="footer-logo-rudn" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/footer-logo.png">
+                </a>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/about.pdf">
+                            О проекте
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://lib.rudn.ru/contacts">
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://lib.rudn.ru">
+                            Научная библиотека РУДН
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="">
+                            Научное управление РУДН
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://repository.rudn.ru/ru/">
+                            Репозиторий РУДН
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://id.rudn.ru/sign-in">
+                            Личный кабинет РУДН
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://rospatent.gov.ru/ru">
+                            Роспатент
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://www.fips.ru/">
+                            ФИПС
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://rosvois.ru/">
+                            ВОИС
+                        </a>
+                    </li>
+                    <li class="point">
+                        <a class="footer-link" href="https://www.wipo.int/portal/ru/">
+                            WIPO
+                        </a>
+                    </li>
+                </ul>
+
+                <ul style="list-style-type: none; padding: 0; margin: 0;">
+                    <li class="point">
+                        <a class="footer-link" href="https://www.eapo.org/">
+                            ЕАПО
+                        </a>
+                    </li>
+
+                    <li class="point">
+                        <a class="footer-link" href="https://www.fips.ru/publication-web/classification/mpk?view=list">
+                            МПК
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <p style="font-size: .9rem;">
+                © 2025 РУДН им. Патриса Лумумбы | <a href="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/policy.pdf">Политика конфиденциальности</a>
+            </p>
+
+        </footer>
+
+        <div class="modal" id="modal00" style="display: none;">
+            <div class="t-click-outside" id="outside00">
+                <div style="background: linear-gradient(to top, #1b2fa3, #a331a3, #ff6f61); padding: 2px; border-radius: 25px;">
+                    <div style="background-color: #ffffff; padding: 1rem 3rem; border-radius: inherit; max-width: 40rem;">
+                        <div style="display: flex; flex-direction: row; justify-content: end; margin-right: -2rem;">
+                            <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/close-cross.svg" style="block-size: 2rem;" onclick="overlay00.style.display = 'none'; document.getElementById('copied-thingy').style.display = 'none'">
+                        </div>
+                        <h2 style="font-weight: 900; font-size: 2rem; margin-bottom: 3rem;">Контакты</h2>
+                        <p><span style="font-size: 2rem;">Центр Трансфера Технологий РУДН</span></p>
+
+                        <div style="display: flex; flex-direction: row; gap: 1rem;">
+                            <button onclick="navigator.clipboard.writeText('techtransfer@rudn.ru'); document.getElementById('copied-thingy').style.display = 'block'" class="copy-button">
+                                techtransfer@rudn.ru
+                                <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/copy.svg" style="block-size: 1rem;">
+                            </button>
+                            <p id="copied-thingy" style="margin: 0; padding: .5rem 1rem; border-radius: 25px; background-color: #ff6f61; color:#ffffff; display:none;">copied</p>
+                        </div>
+                        
+                        <div style="display: flex; flex-direction: row; justify-content: end;">
+                            <img src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/contacts.svg" style="block-size: 8rem;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+
+            const overlay00 = document.getElementById('modal00');
+            const modalContent00 = document.getElementById('outside00');
+
+            overlay00.addEventListener('click', (e) => {
+                const isClickInsideContent = modalContent00.contains(e.target);
+                if (!isClickInsideContent){
+                    overlay00.style.display = 'none';
+                }
+            });
+
+        </script>
+
+    </body>
+</html>
