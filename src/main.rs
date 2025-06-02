@@ -45,12 +45,10 @@ async fn main() -> std::io::Result<()>
         .finish()
         .unwrap();
 
-    dotenvy::dotenv().ok();
-
     let pool = MySqlPoolOptions::new()
         .max_connections(10)
         .acquire_timeout(time::Duration::from_secs(10))
-        .connect(&(env::var("DATABASE_URL").expect("No env var found")))
+        .connect("mysql://admindev:Sans154125@127.0.0.1:3306/DB_RID")
         .await
         .expect("pool failed");
 
@@ -71,7 +69,7 @@ async fn main() -> std::io::Result<()>
         .service(web::resource("/{name}/result").route(web::post().to(handlers::poster)))
         .default_service(web::route().to(handlers::not_found))
     )
-        .bind(("0.0.0.0", 81))?
+        .bind(("0.0.0.0", 8081))?
         .run()
         .await
 }

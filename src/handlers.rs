@@ -23,7 +23,7 @@ pub struct InputData
 }
 
 #[derive(Serialize, Debug, sqlx::FromRow)]
-struct Bestrid
+struct BestRID
 {
     name: Option<String>,
     sub_area: Option<String>
@@ -57,7 +57,7 @@ struct Rid
     description: String,
     number: i32,
     faculty: String,
-    rid_type: String,
+    RID_type: String,
     year: String,
     sub_area: String,
     link: String,
@@ -66,7 +66,7 @@ struct Rid
 
 pub async fn index(name: web::Path<String>/*, search_request: web::Json<HashMap<String, serde_json::Value>>*/) -> impl Responder
 {
-    let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/{}/{}.html", &name, &name);
+    let file_path = format!("/data/RID2/appearance/{}/{}.html", &name, &name);
     let body = std::fs::read_to_string(file_path).unwrap();
     HttpResponse::Ok()
         .content_type("text/html; charset=utf-8")
@@ -84,7 +84,7 @@ pub async fn index(name: web::Path<String>/*, search_request: web::Json<HashMap<
 
 pub async fn main_page() -> impl Responder
 {
-    let body = std::fs::read_to_string("C:/Users/syrtsov_ayu/projects/site/server/appearance/main/main.html").unwrap();
+    let body = std::fs::read_to_string("/data/RID2/appearance/main/main.html").unwrap();
     HttpResponse::Ok()
         .content_type("text/html; charset=utf-8")
         .body(body)
@@ -92,7 +92,7 @@ pub async fn main_page() -> impl Responder
 
 pub async fn styles(name: web::Path<String>) -> impl Responder
 {
-    let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/{}/content.css", &name);
+    let file_path = format!("/data/RID2/appearance/{}/content.css", &name);
     let body = std::fs::read_to_string(file_path).unwrap();
     HttpResponse::Ok()
         .content_type("text/css; charset=utf-8")
@@ -101,7 +101,7 @@ pub async fn styles(name: web::Path<String>) -> impl Responder
 
 pub async fn scripts(name: web::Path<String>) -> impl Responder
 {
-    let file_path = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/{}/{}.js", &name, &name);
+    let file_path = format!("/data/RID2/appearance/{}/{}.js", &name, &name);
     let body = std::fs::read_to_string(file_path).unwrap();
     HttpResponse::Ok()
         .content_type("application/javascript; charset=utf-8")
@@ -110,7 +110,7 @@ pub async fn scripts(name: web::Path<String>) -> impl Responder
 
 pub async fn png(file: web::Path<String>) -> impl Responder
 {
-    let image = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/images/{}.png", &file);
+    let image = format!("/data/RID2/appearance/images/{}.png", &file);
     let body = std::fs::read(image).unwrap();
     HttpResponse::Ok()
     .content_type("image/png")
@@ -119,7 +119,7 @@ pub async fn png(file: web::Path<String>) -> impl Responder
 
 pub async fn svg(file: web::Path<String>) -> impl Responder
 {
-    let image = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/images/{}.svg", &file);
+    let image = format!("/data/RID2/appearance/images/{}.svg", &file);
     let body = std::fs::read(image).unwrap();
     HttpResponse::Ok()
     .content_type("image/svg+xml")
@@ -128,7 +128,7 @@ pub async fn svg(file: web::Path<String>) -> impl Responder
 
 pub async fn fonts(file: web::Path<String>) -> impl Responder
 {
-    let image = format!("C:/Users/syrtsov_ayu/projects/site/server/appearance/fonts/{}.ttf", &file);
+    let image = format!("/data/RID2/appearance/fonts/{}.ttf", &file);
     let body = std::fs::read(image).unwrap();
     HttpResponse::Ok()
     .content_type("font/ttf")
@@ -137,7 +137,7 @@ pub async fn fonts(file: web::Path<String>) -> impl Responder
 
 pub async fn best(pool: web::Data<MySqlPool>) -> impl Responder
 {
-    let rows = sqlx::query_as!(Bestrid, "select bestrid.name as name, SubjectArea.name as sub_area from bestrid left join SubjectArea on (bestrid.idSubjectArea = SubjectArea.id)")
+    let rows:Vec<BestRID> = sqlx::query_as("select BestRID.name as name, SubjectArea.name as sub_area from BestRID left join SubjectArea on (BestRID.idSubjectArea = SubjectArea.id)")
         .fetch_all(pool.get_ref())
         .await
         .unwrap();
@@ -169,15 +169,15 @@ pub async fn best(pool: web::Data<MySqlPool>) -> impl Responder
 
 pub async fn counters(pool: web::Data<MySqlPool>) -> impl Responder
 {
-    let sub_area_count_map = sqlx::query_as!(SubjectAreaFilter, r#"
+    let sub_area_count_map:Vec<SubjectAreaFilter> = sqlx::query_as(r#"
         select
-            subjectarea.name as sub_area,
-            COUNT(subjectarea.name) AS sub_area_count
-        from rid
+            SubjectArea.name as sub_area,
+            COUNT(SubjectArea.name) AS sub_area_count
+        from RID
 
         left join SubjectArea on (RID.idSubjectArea = SubjectArea.id)
         GROUP BY
-            subjectarea.name
+            SubjectArea.name
         ORDER by
          	sub_area_count desc
         "#)
@@ -185,15 +185,15 @@ pub async fn counters(pool: web::Data<MySqlPool>) -> impl Responder
         .await
         .unwrap();
 
-    let year_count_map = sqlx::query_as!(YearFilter, r#"
+    let year_count_map:Vec<YearFilter> = sqlx::query_as(r#"
         select
-            cast(year.year as char) as year,
-            COUNT(year.year) AS year_count
-        from rid
+            cast(Year.year as char) as year,
+            COUNT(Year.year) AS year_count
+        from RID
 
         left join Year on (RID.idYear = Year.id)
         GROUP BY
-            year.year
+            Year.year
         order by
             year_count desc
         "#)
@@ -201,11 +201,11 @@ pub async fn counters(pool: web::Data<MySqlPool>) -> impl Responder
         .await
         .unwrap();
 
-    let faculty_count_map = sqlx::query_as!(FacultyFilter, r#"
+    let faculty_count_map:Vec<FacultyFilter> = sqlx::query_as(r#"
         select
             Faculty.name as faculty,
             COUNT(Faculty.name) AS faculty_count
-        from rid
+        from RID
 
         left join Faculty on (RID.idFaculty = Faculty.id)
         GROUP BY
@@ -318,23 +318,23 @@ pub async fn find(search_request: web::Json<HashMap<String, serde_json::Value>>,
 {
     let mut basepart: String = String::from(r#"
         select
-            rid.name as name,
-            rid.description as description,
-            rid.numPotent as number,
+            RID.name as name,
+            RID.description as description,
+            RID.numPotent as number,
             Faculty.name as faculty,
-            Type.name as rid_type,
+            Type.name as RID_type,
             cast(Year.year as char) as year,
             SubjectArea.name as sub_area,
-            rid.link as link,
-            group_concat(fio.surname, ' ', fio.name, '.', fio.lastname, '.', ' (', authorcountry.name, ')' SEPARATOR ', ') as authors
-        from rid
+            RID.link as link,
+            group_concat(FIO.surname, ' ', FIO.name, '.', FIO.lastname, '.', ' (', AuthorCountry.name, ')' SEPARATOR ', ') as authors
+        from RID
 
         left join Faculty on (RID.idFaculty = Faculty.id)
         left join Type on (RID.idType = Type.id)
         left join Year on (RID.idYear = Year.id)
         left join SubjectArea on (RID.idSubjectArea = SubjectArea.id)
         left join AUTHORxRID on (RID.id = AUTHORxRID.idRID)
-        left join fio on (AUTHORxRID.idAuthor = FIO.id)
+        left join FIO on (AUTHORxRID.idAuthor = FIO.id)
         left join ConnectionAuthorCountry on (FIO.id = ConnectionAuthorCountry.idFIO)
         left join AuthorCountry on (ConnectionAuthorCountry.idCountry = AuthorCountry.id)
     "#);
@@ -398,7 +398,7 @@ pub async fn find(search_request: web::Json<HashMap<String, serde_json::Value>>,
                 }
             },
 
-            _ => continue;
+            _ => continue
         }
     }
 
@@ -437,7 +437,7 @@ pub async fn find(search_request: web::Json<HashMap<String, serde_json::Value>>,
         basepart.push_str(&strpart);
     }
 
-    basepart.push_str(" GROUP BY rid.name, year");
+    basepart.push_str(" GROUP BY RID.name, year");
 
     let rows:Result<Vec<Rid>, sqlx::Error>  = sqlx::query_as(&basepart)
         .fetch_all(pool.get_ref())
@@ -496,7 +496,7 @@ pub async fn find(search_request: web::Json<HashMap<String, serde_json::Value>>,
                     row.description, // 2
                     row.number, // 3
                     row.faculty, // 4
-                    row.rid_type, // 5
+                    row.RID_type, // 5
                     row.year, // 6
                     row.sub_area, // 7
                     row.link, // 8
