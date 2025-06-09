@@ -407,15 +407,24 @@ body{
     color: #000000;
 }
 
-#useless-show-more-button-because-pagination-is-not-complex-enough{
-    margin: 2rem;
+.chunk-render-button{
     padding: 1rem;
     border: 0px;
     border-radius: 25px;
     font-size: 1.05rem;
+    width: 17rem;
+}
+
+#chunk-render-buttons{
+    display:flex; flex-direction: row; justify-content: center; margin-top: 2rem; gap: 1rem;
 }
 
 @media (max-width: 70.125rem) {
+
+    #chunk-render-buttons{
+        flex-direction: column;
+        align-items: center;
+    }
 
     body{
         overflow: visible;
@@ -456,7 +465,7 @@ body{
     }
 
     #mobile-adapter-search-wrapper{
-        gap: 0; margin: 0 0 4rem 0; justify-content: space-between;
+        gap: 0; margin: 0 0 2rem 0; justify-content: space-between;
     }
 
     #search-input{
