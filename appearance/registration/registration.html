@@ -5,6 +5,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
         <title>Регистрация РИД</title>
+
+        <!-- Yandex.Metrika counter -->
+        <script type="text/javascript" >
+            (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return;
+            }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore
+            (k,a)})
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+            ym(98619707, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true});
+            ym(102435627, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:
+            true});
+        </script>
+        <noscript>
+        <div>
+        <img src="https://mc.yandex.ru/watch/98619707" alt="" />
+        <img src="https://mc.yandex.ru/watch/102435627" alt="" />
+        </div>
+        </noscript>
+        <!-- /Yandex.Metrika counter -->
+
+        <!-- Top.Mail.Ru counter -->
+        <script type="text/javascript">
+            var _tmr = window._tmr || (window._tmr = []);
+            _tmr.push({id: "3603518", type: "pageView", start: (new Date()).getTime()});
+            (function (d, w, id) {
+            if (d.getElementById(id)) return;
+            var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+            ts.src = "https://top-fwz1.mail.ru/js/code.js";
+            var f = function () {var s = d.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(ts, s);};
+            if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); }
+            else { f(); }
+            })(document, window, "tmr-code");
+        </script>
+        <noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3603518;js=na"
+        style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+        <!-- /Top.Mail.Rucounter -->
     </head>
     <link rel="stylesheet" href="registration/assets/content.css">
 
@@ -20,9 +59,8 @@
                 </a>
             </div>
             <div>
-                 <!-- REMAKE -->
                 <form action="/portfolio" method="get" id="navigation-search">
-                    <input id="navigation-search-input" autocomplete="off" placeholder="поиск по базе РИД" value="" name="for" type="text" aria-haspopup="false" aria-autocomplete="both" dir="ltr" spellcheck="false">
+                    <input id="navigation-search-input" autocomplete="off" placeholder="поиск по базе РИД" value="" name="str" type="text" aria-haspopup="false" aria-autocomplete="both" dir="ltr" spellcheck="false">
                     <button class="button-for-special-people" style="background: none; border: none;">
                         <img class="deviant-icon" src="https://lib.obs.ru-moscow-1.hc.sbercloud.ru:443/PATENTS/search.svg">
                     </button>
@@ -665,6 +703,45 @@
                 }
             });
 
+        </script>
+
+                <div id="cookie-notification" style="position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 1001;
+    max-width: 16rem;
+    align-items: center;
+    flex-direction: column;
+    background: hsl(0, 2%, 20%);
+    padding: 1rem;
+    border-radius: 25px;
+    display: none;">
+            <h2 style="color: #146cdf;">Предупреждение о печенюшках!</h2>
+            <p style="color: #ffffff; font-size: 1rem;">Яндекс.Метрика и MyTracker используют файлы <span style="font-weight: 900;">Cookie</span> на нашем сайте, подробнее:</p>
+            <div style=" margin: 1rem 0;"><a href="https://yandex.ru/support/metrica/ru/general/cookie-usage.html" style="color: #ffffff;">Cookie Яндекс.Метрики (ссылка)</a></div>
+            <div style=" margin: 1rem 0;"><a href="https://tracker.my.com/ru/legal/cookie-policy" style="color: #ffffff;">Cookie MyTracker (ссылка)</a></div>
+            <button style="background: #146cdf;
+    color: #fff;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 9px 23px;
+    text-decoration: none;
+    border: 0;
+    width: 100%;
+    margin-bottom: 1rem;" onclick="acceptCookie()">Понятно</button>
+        </div>
+
+        <script>
+            function acceptCookie()
+            {
+                localStorage.setItem('cookies-accepted', 'y');
+                document.getElementById('cookie-notification').style.display = 'none';
+            }
+
+            if(localStorage.getItem('cookies-accepted') !== 'y')
+            {
+                document.getElementById('cookie-notification').style.display = 'block';
+            }
         </script>
 
     </body>
